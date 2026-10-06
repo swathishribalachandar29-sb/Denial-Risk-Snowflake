@@ -1,0 +1,14 @@
+name: denial_dbt
+version: "1.0.0"
+config-version: 2
+profile: denial_dbt
+
+model-paths: ["models"]
+test-paths: ["tests"]
+
+models:
+  denial_dbt:
+    staging:
+      +materialized: view
+    marts:
+      +materialized: table

@@ -1,0 +1,1 @@
+select distinct icd10_code, icd10_desc from {{ ref('stg_claims') }}

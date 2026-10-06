@@ -1,0 +1,12 @@
+denial_dbt:
+  target: dev
+  outputs:
+    dev:
+      type: snowflake
+      account: 'not needed'
+      user: 'not needed'
+      role: ACCOUNTADMIN
+      database: DENIAL_ANALYTICS_DB
+      schema: DBT
+      warehouse: DENIAL_WH
+      threads: 4

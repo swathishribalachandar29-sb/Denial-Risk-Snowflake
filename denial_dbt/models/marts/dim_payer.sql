@@ -1,0 +1,1 @@
+select distinct payer_type from {{ ref('stg_claims') }}

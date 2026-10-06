@@ -1,0 +1,54 @@
+version: 2
+
+models:
+  - name: fact_claims
+    description: One row per claim with outcome, denial and appeal details.
+    columns:
+      - name: claim_id
+        tests: [unique, not_null]
+      - name: payer_type
+        tests:
+          - not_null
+          - relationships: {to: ref('dim_payer'), field: payer_type}
+      - name: provider_specialty
+        tests:
+          - relationships: {to: ref('dim_specialty'), field: provider_specialty}
+      - name: cpt_code
+        tests:
+          - relationships: {to: ref('dim_procedure'), field: cpt_code}
+      - name: icd10_code
+        tests:
+          - relationships: {to: ref('dim_diagnosis'), field: icd10_code}
+      - name: denial_reason_code
+        tests:
+          - relationships: {to: ref('dim_denial_reason'), field: denial_reason_code}
+      - name: outcome
+        tests:
+          - accepted_values:
+              values: ['paid', 'denied', 'partial_pay', 'pending']
+      - name: is_denied
+        tests:
+          - accepted_values:
+              values: [0, 1]
+              quote: false
+
+  - name: dim_payer
+    columns:
+      - name: payer_type
+        tests: [unique, not_null]
+  - name: dim_specialty
+    columns:
+      - name: provider_specialty
+        tests: [unique, not_null]
+  - name: dim_procedure
+    columns:
+      - name: cpt_code
+        tests: [unique, not_null]
+  - name: dim_diagnosis
+    columns:
+      - name: icd10_code
+        tests: [unique, not_null]
+  - name: dim_denial_reason
+    columns:
+      - name: denial_reason_code
+        tests: [unique, not_null]

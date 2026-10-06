@@ -1,0 +1,1 @@
+select distinct provider_specialty from {{ ref('stg_claims') }}

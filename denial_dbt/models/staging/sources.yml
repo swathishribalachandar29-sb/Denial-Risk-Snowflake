@@ -1,0 +1,9 @@
+version: 2
+sources:
+  - name: raw
+    database: DENIAL_ANALYTICS_DB
+    schema: RAW
+    tables:
+      - name: RAW_CLAIMS
+      - name: RAW_DENIAL_LABELS
+      - name: RAW_TRAIN_TEST_SPLIT
