@@ -21,7 +21,7 @@ a system in Snowflake that:
 | Missing prior authorization | 79% denied vs. 27% when not missing |
 | **Top 1,000 claims worked by priority vs. oldest-first** | **$10.4M vs. $1.06M recovered (9.8×)** |
 
-![Appeal queue](screenshots/appeal_queue.png)
+![Appeal queue](screenshot/appeal_queue.png)
 
 ---
 
@@ -45,7 +45,7 @@ CSV files → RAW → staging (dbt views) → star schema (dbt tables) → risk 
 | **AI layer** | Semantic view + Cortex Analyst for natural-language questions |
 | **Automation** | Stream on raw claims → detect new rows → `dbt build` → refresh appeal queue |
 
-![dbt lineage](screenshots/dbt_lineage.png)
+![dbt lineage](screenshot/dbt_lineage.png)
 
 ---
 
@@ -81,13 +81,13 @@ since they only exist after a claim is denied.
 ## Screenshots
 
 **Overview**
-![Overview](screenshots/overview.png)
+![Overview](screenshot/overview.png)
 
 **Risk check: claims to fix before sending**
-![Risk check](screenshots/risk_check.png)
+![Risk check](screenshot/risk_check.png)
 
 **AI chat: Cortex Analyst answering "top 10 claims to appeal"**
-![AI chat](screenshots/ai_chat.png)
+![AI chat](screenshot/ai_chat.png)
 
 ---
 
